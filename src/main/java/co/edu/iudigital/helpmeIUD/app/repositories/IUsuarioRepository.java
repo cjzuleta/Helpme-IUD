@@ -1,0 +1,14 @@
+package co.edu.iudigital.helpmeIUD.app.repositories;
+
+
+import co.edu.iudigital.helpmeIUD.app.models.Usuario;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository // esto es ambigüo porque extienda a un Bean
+public interface IUsuarioRepository
+        extends CrudRepository<Usuario, Long> {
+    // select * from usuarios where username='dasdasdad';
+    //@Query("SELECT u FROM Usuario u WHERE u.username=?1")
+    Usuario findByUsername(String username);// usando Spring Data JPA
+}
